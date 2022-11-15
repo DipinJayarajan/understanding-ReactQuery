@@ -15,16 +15,22 @@ function RQSuperHeroespage() {
   const onError = (error) => {
     console.log("Perform side effect", error)
   }
+
   const {data, isLoading, isError, error , isFetching, refetch} = useQuery("super-heroes", fetchSuperHeroes,
   {
-    enabled: false,
+    select: (data) => {
+      const SuperHeroesNames = data.data.map((hero) => hero.name)
+        return SuperHeroesNames
+      
+    },
      onSuccess,
       onError,
+
   }
   )
 
-
   console.log( {isLoading , isFetching})
+
   if (isLoading || isFetching) {
     return <h2>Loading...</h2>
   }
@@ -37,12 +43,15 @@ function RQSuperHeroespage() {
     <>
     <h2>RQSuperHeroespage</h2>
     <button onClick={refetch}>Fetch Heroes</button>
-    {
+    {/* {
       data?.data.map((hero, index) => {
         return <div key={index}>{hero.name}</div>
       }
       )
-    }
+    } */}
+    {data.map((heroName) => {
+      return <div key={heroName}>{heroName}</div>
+    }) }
     </>
   )
 }
