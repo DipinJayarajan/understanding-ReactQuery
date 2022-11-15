@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import {  BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import reportWebVitals from './reportWebVitals';
 
 const client = new QueryClient();
@@ -13,6 +14,7 @@ root.render(
   <QueryClientProvider client={client} >
   <BrowserRouter>
   <App />
+  <ReactQueryDevtools />
   </BrowserRouter>
   </QueryClientProvider>
 );
