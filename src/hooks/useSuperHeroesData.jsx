@@ -12,11 +12,11 @@ const fetchSuperHeroes =  () => {
   {
     onSuccess,
     onError,
-    select: (data) => {
-      const SuperHeroesNames = data.data.map((hero) => hero.name)
-        return SuperHeroesNames
+    // select: (data) => {
+    //   const SuperHeroesNames = data.data.map((hero) => hero.name)
+    //     return SuperHeroesNames
       
-    },
+    // },
 
   }
   )
