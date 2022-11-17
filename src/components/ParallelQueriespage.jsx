@@ -3,11 +3,11 @@ import { useQuery } from 'react-query'
 import axios from 'axios'
 
 const fetchSuperHeroes =  () => {
-    return axios.get('http://localhost:4003/superheroes')
+    return axios.get('http://localhost:4004/superheroes')
 }
 
 const fetchFriends =  () => {
-    return axios.get('http://localhost:4003/friends')
+    return axios.get('http://localhost:4004/friends')
 }
     
 export const ParallelQueriespage = () => {

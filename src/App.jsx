@@ -2,8 +2,10 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
+import { DependentQueriespage } from './components/DependentQueriespage';
 import { DynamicParallelpage } from './components/DynamicParallelpage';
 import Homepage from './components/Homepage';
+import { InfiniteQueriespage } from './components/InfiniteQueriespage';
 import { ParallelQueriespage } from './components/ParallelQueriespage';
 import RQSuperHeroespage from './components/RQSuperHeroespage';
 import { RQSuperHeroPage } from './components/RQSuperHeropage';
@@ -32,6 +34,8 @@ function App() {
         <Route path="/rqsuperheroes/:heroId" element={<RQSuperHeroPage />} />
         <Route path="/rq-parallel" element={<ParallelQueriespage />} />
         <Route path="/rq-dynamic parallel" element={<DynamicParallelpage heroIds={[1,3]} />} />
+        <Route path="/rq-dependent" element={<DependentQueriespage email = "dipin@example.com "/>} />
+        <Route path="/rq-infinite" element={<InfiniteQueriespage />} />
      </Routes>
     </div>
   );
