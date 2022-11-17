@@ -3,11 +3,11 @@ import { useQuery } from 'react-query'
 import axios from 'axios'
 
 const fetchUserByEmail = (email) => {
-  return axios.get(`http://localhost:4004/users/${email}`)
+  return axios.get(`http://localhost:4005/users/${email}`)
 }
 
 const fetchCoursesByChannelId = (channelId) => {
- return axios.get(`http://localhost:4004/channels/${channelId}`)
+ return axios.get(`http://localhost:4005/channels/${channelId}`)
 }
 
 export const DependentQueriespage = ({ email }) => {

@@ -1,10 +1,14 @@
 import React from 'react';
-import { useQuery } from 'react-query'
+import { useQuery , useMutation} from 'react-query'
 import axios from 'axios';
 
 const fetchSuperHeroes =  () => {
-    return axios.get('http://localhost:4003/superheroes')
+    return axios.get('http://localhost:4005/superheroes')
   }
+//mutation
+ const addSuperHero = (hero) => {
+   return axios.post('http://localhost:4005/superheroes', hero)
+ }
 
  const useSuperHeroesData = (onSuccess, onError) => {
 
@@ -12,6 +16,7 @@ const fetchSuperHeroes =  () => {
   {
     onSuccess,
     onError,
+    refetchOnWindowFocus : false,
     // select: (data) => {
     //   const SuperHeroesNames = data.data.map((hero) => hero.name)
     //     return SuperHeroesNames
@@ -22,8 +27,12 @@ const fetchSuperHeroes =  () => {
   )
     
 }  
+//mutation
+ const useAddSuperHeroData = () => {
+  return useMutation(addSuperHero)
+}
 
-export default useSuperHeroesData;
+export {useSuperHeroesData, useAddSuperHeroData}
 
 
 
