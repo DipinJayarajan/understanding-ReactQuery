@@ -31,8 +31,15 @@ const fetchSuperHeroes =  () => {
  const useAddSuperHeroData = () => {
   const queryClient = useQueryClient()
   return useMutation(addSuperHero, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("super-heroes")
+    //data refers to the entire response for the post request
+    onSuccess: (data) => {
+      // queryClient.invalidateQueries("super-heroes")
+    queryClient.setQueryData("super-heroes",(oldQueryData) => {
+      return {
+        ...oldQueryData,
+        data: [...oldQueryData.data, data.data]
+      }
+    } )
     }
   })
 }
